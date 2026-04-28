@@ -1,0 +1,14 @@
+$kind: http-request
+name: PutRequest
+url: https://reqres.in/api/users/372
+method: PUT
+headers:
+  x-api-key: pub_2a96a745953af980ce65317b059f174bed540bc3d09fd1bef82084360ecce95e
+body:
+  type: json
+  content: |-
+    {
+        "name": "Kunj",
+        "job": "SDE"
+    }
+order: 4128672944231290

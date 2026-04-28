@@ -1,0 +1,15 @@
+$kind: http-request
+name: GETRequest
+url: |+
+  https://reqres.in/api/users?page=2
+
+method: GET
+headers:
+  x-api-key: pub_2a96a745953af980ce65317b059f174bed540bc3d09fd1bef82084360ecce95e
+queryParams:
+  page: |+
+    2
+
+auth:
+  type: noauth
+order: 1777403971142

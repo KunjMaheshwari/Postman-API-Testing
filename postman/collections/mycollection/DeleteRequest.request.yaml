@@ -1,0 +1,10 @@
+$kind: http-request
+name: DeleteRequest
+url: https://reqres.in/api/users/329
+method: DELETE
+headers:
+  x-api-key: pub_2a96a745953af980ce65317b059f174bed540bc3d09fd1bef82084360ecce95e
+body:
+  type: json
+  content: ""
+order: 4341078007514373

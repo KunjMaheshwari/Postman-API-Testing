@@ -1,0 +1,15 @@
+$kind: http-request
+name: PostRequest
+url: https://reqres.in/api/users
+method: POST
+headers:
+  - key: x-api-key
+    value: pub_2a96a745953af980ce65317b059f174bed540bc3d09fd1bef82084360ecce95e
+body:
+  type: json
+  content: |-
+    {
+        "name":"Kunj Maheshwari",
+        "job":"Software Engineer"
+    }
+order: 3965121754073537
