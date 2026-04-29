@@ -1,0 +1,5 @@
+$kind: http-request
+name: OptionsRequest
+url: http://localhost:3000/students
+method: OPTIONS
+order: 47052968593537

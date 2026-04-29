@@ -1,0 +1,16 @@
+$kind: http-request
+name: PUTRequest
+url: http://localhost:3000/students/wwykglf5llI
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "name": "Prakhar Sharma",
+        "location": "Vidisha",
+        "phone": "123-456-7890",
+        "course": [
+            "Computer Science"
+        ]
+    }
+order: 2820629757621674

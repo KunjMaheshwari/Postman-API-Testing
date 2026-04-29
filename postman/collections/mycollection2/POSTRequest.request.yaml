@@ -1,0 +1,16 @@
+$kind: http-request
+name: POSTRequest
+url: http://localhost:3000/students
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "name": "Prakhar",
+        "location": "India",
+        "phone": "123-456-999",
+        "course": [
+            "Computer Science"
+        ]
+    }
+order: 223950404047482

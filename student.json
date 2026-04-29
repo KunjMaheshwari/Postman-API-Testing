@@ -1,0 +1,84 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "location": "New York",
+      "phone": "123-456-7890",
+      "course": [
+        "Computer Science",
+        "Data Structures",
+        "Algorithms"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "location": "Los Angeles",
+      "phone": "098-765-4321",
+      "course": [
+        "Mathematics",
+        "Statistics",
+        "Calculus"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Charlie",
+      "location": "Chicago",
+      "phone": "555-555-5555",
+      "course": [
+        "Physics",
+        "Mathematics"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "David",
+      "location": "Houston",
+      "phone": "111-111-1111",
+      "course": [
+        "Chemistry",
+        "Biology"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Eve",
+      "location": "Seattle",
+      "phone": "222-222-2222",
+      "course": [
+        "Biology",
+        "Genetics"
+      ]
+    },
+    {
+      "id": "1kZWvyiIxFE",
+      "name": "Kunj",
+      "location": "India",
+      "phone": "123-456-999",
+      "course": [
+        "Computer Science"
+      ]
+    },
+    {
+      "name": "Prakhar Sharma",
+      "location": "Vidisha",
+      "phone": "123-456-7890",
+      "course": [
+        "Computer Science"
+      ],
+      "id": "wwykglf5llI"
+    },
+    {
+      "name": "Prakhar",
+      "location": "India",
+      "phone": "123-456-999",
+      "course": [
+        "Computer Science"
+      ],
+      "id": "9_kIrNUwRLU"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
