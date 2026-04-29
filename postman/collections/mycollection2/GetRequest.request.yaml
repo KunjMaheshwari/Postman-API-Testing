@@ -2,4 +2,42 @@ $kind: http-request
 name: GetRequest
 url: http://localhost:3000/students
 method: GET
+scripts:
+  - type: afterResponse
+    code: >-
+      pm.test("Status code is 200", ()=>{
+          pm.response.to.have.status(200);
+      })
+
+
+      pm.test("Student data is not empty", ()=>{
+          let studentData = pm.response.json();
+          pm.expect(studentData.length).to.be.greaterThan(1);
+      })
+
+
+      pm.test("Check the status code", ()=>{
+          pm.response.to.have.status("OK");
+      })
+
+
+      pm.test("Presence of header", ()=>{
+          pm.response.to.have.header("Content-Type");
+      })
+
+
+      pm.test("Validate the text inside the header", ()=>{
+          pm.expect(pm.response.headers.get("Content-Type")).to.eql("application/json")
+      });
+
+
+      pm.test("Cookies langauge is not present", ()=>{
+          pm.expect(pm.cookies.has("langauge")).to.be.false;
+      })
+
+
+      pm.test("Response time is less than 200ms", ()=>{
+          pm.expect(pm.response.responseTime).to.be.lessThan(200);
+      })
+    language: text/javascript
 order: 1777469514338
