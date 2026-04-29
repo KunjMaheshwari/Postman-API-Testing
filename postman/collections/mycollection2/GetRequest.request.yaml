@@ -5,39 +5,355 @@ method: GET
 scripts:
   - type: afterResponse
     code: >-
-      pm.test("Status code is 200", ()=>{
+      pm.test("Status code is 200", () => {
           pm.response.to.have.status(200);
       })
 
 
-      pm.test("Student data is not empty", ()=>{
+      pm.test("Student data is not empty", () => {
           let studentData = pm.response.json();
           pm.expect(studentData.length).to.be.greaterThan(1);
       })
 
 
-      pm.test("Check the status code", ()=>{
+      pm.test("Check the status code", () => {
           pm.response.to.have.status("OK");
       })
 
 
-      pm.test("Presence of header", ()=>{
+      pm.test("Presence of header", () => {
           pm.response.to.have.header("Content-Type");
       })
 
 
-      pm.test("Validate the text inside the header", ()=>{
+      pm.test("Validate the text inside the header", () => {
           pm.expect(pm.response.headers.get("Content-Type")).to.eql("application/json")
       });
 
 
-      pm.test("Cookies langauge is not present", ()=>{
+      pm.test("Cookies langauge is not present", () => {
           pm.expect(pm.cookies.has("langauge")).to.be.false;
       })
 
 
-      pm.test("Response time is less than 200ms", ()=>{
+      pm.test("Response time is less than 200ms", () => {
           pm.expect(pm.response.responseTime).to.be.lessThan(200);
+      })
+
+
+      const jsonData = pm.response.json();
+
+
+      pm.test("Validate first object", () => {
+          pm.expect(jsonData[0]).to.be.an("object");
+          pm.expect(jsonData[0].name).to.be.a("string");
+          pm.expect(jsonData[0].location).to.be.a("string");
+          pm.expect(jsonData[0].phone).to.be.a("string");
+          pm.expect(jsonData[0].course).to.be.an("array");
+      });
+
+
+      pm.test("Asserting array properties", () => {
+          pm.expect(jsonData[0].course).to.include("Algorithms");
+          pm.expect(jsonData[0].course).to.have.members(["Computer Science", "Data Structures", "Algorithms"]);
+      })
+
+
+      pm.test("Json validation", () => {
+          pm.expect(jsonData[0].id).to.eql("1");
+          pm.expect(jsonData[0].name).to.eql("Alice");
+          pm.expect(jsonData[0].location).to.eql("New York");
+          pm.expect(jsonData[0].phone).to.eql("123-456-7890");
+      })
+
+
+      var schema = {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "array",
+          "items": [
+              {
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "name",
+                      "location",
+                      "phone",
+                      "course"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "name",
+                      "location",
+                      "phone",
+                      "course"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "name",
+                      "location",
+                      "phone",
+                      "course"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "name",
+                      "location",
+                      "phone",
+                      "course"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              },
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "name",
+                      "location",
+                      "phone",
+                      "course"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "name",
+                      "location",
+                      "phone",
+                      "course"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      },
+                      "id": {
+                          "type": "string"
+                      }
+                  },
+                  "required": [
+                      "name",
+                      "location",
+                      "phone",
+                      "course",
+                      "id"
+                  ]
+              },
+              {
+                  "type": "object",
+                  "properties": {
+                      "name": {
+                          "type": "string"
+                      },
+                      "location": {
+                          "type": "string"
+                      },
+                      "phone": {
+                          "type": "string"
+                      },
+                      "course": {
+                          "type": "array",
+                          "items": [
+                              {
+                                  "type": "string"
+                              }
+                          ]
+                      },
+                      "id": {
+                          "type": "string"
+                      }
+                  },
+                  "required": [
+                      "name",
+                      "location",
+                      "phone",
+                      "course",
+                      "id"
+                  ]
+              }
+          ]
+      }
+
+
+      pm.test("Validate JSON Schema", () => {
+          pm.expect(tv4.validate(jsonData, schema)).to.be.true;
       })
     language: text/javascript
 order: 1777469514338
