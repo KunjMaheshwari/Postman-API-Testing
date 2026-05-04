@@ -1,0 +1,23 @@
+$kind: http-request
+name: Create Student
+url: http://localhost:3000/students
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "name": "Akshat",
+        "location":"Vidisha", 
+        "phone": "1234",
+        "courses":[
+            "English",
+            "Maths"
+        ]
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      var jsonData = JSON.parse(responseBody);
+      pm.environment.set("id", jsonData.id); // this will create an environment variables for me.
+    language: text/javascript
+order: 1777905067264

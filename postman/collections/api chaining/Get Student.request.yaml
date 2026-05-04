@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get Student
+url: http://localhost:3000/students/{{id}}
+method: GET
+order: 3071113260289917

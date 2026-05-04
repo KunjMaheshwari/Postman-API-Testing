@@ -78,6 +78,36 @@
         "Computer Science"
       ],
       "id": "9_kIrNUwRLU"
+    },
+    {
+      "name": "Akshat",
+      "location": "Vidisha",
+      "phone": "1234",
+      "courses": [
+        "English",
+        "Maths"
+      ],
+      "id": "YsVCQjaQSmY"
+    },
+    {
+      "name": "Akshat",
+      "location": "Vidisha",
+      "phone": "1234",
+      "courses": [
+        "English",
+        "Maths"
+      ],
+      "id": "KN9vQTfG_gU"
+    },
+    {
+      "name": "Akshat",
+      "location": "Vidisha",
+      "phone": "1234",
+      "courses": [
+        "English",
+        "Maths"
+      ],
+      "id": "3gD_InQlTJI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
